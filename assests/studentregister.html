@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    
     <style>
         .p-10{
             margin:20px 0;
@@ -20,6 +21,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Register</title>
+    <link rel="icon" href="images/techveel.png">
+    <link rel="stylesheet" href="css/style.css" >
 </head>
 <body class="pb-5">
     <nav class="navbar navbar-expand-lg p-4">
@@ -42,17 +45,17 @@
                         </a> 
                     </li>
                     <li class="nav-item ">
-                        <a href="attenance.html" class="nav-link">
+                        <a href="attendance.html" class="nav-link">
                         Attenance
                         </a> 
                     </li>
                     <li class="nav-item">
-                        <a href="attenancereport.html" class="nav-link">
+                        <a href="attendancereport.html" class="nav-link">
                             Attenance Report
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a href="index.html" class="nav-link">
+                        <a href="../index.html" class="nav-link">
                         Logout
                         </a> 
                     </li>
@@ -65,10 +68,12 @@
             
             <label class="col-md-2 text-lg-end">Your Name</label> 
             <div class="col-lg-5">
-                <input class=" form-control" type="text" placeholder="First Name" />
+                <input class="form-control" type="text" placeholder="First Name" id="first-name" >
+                <span class="error"></span>
             </div>
             <div class="col-lg-5 mt-lg-0 mt-3">
-                <input class=" form-control" type="text" placeholder="Second Name" />
+                <input class=" form-control" type="text" placeholder="Second Name" id="second-name" >
+                <span class="error"></span>
             </div>
         </div>
         
@@ -76,7 +81,8 @@
             
             <Label class="col-2 text-lg-end">Phone </Label>
             <div class="col-lg-10">
-                <input class="form-control" type="text" placeholder="mobile number" />
+                <input class="form-control" type="text" placeholder="mobile number" id="phoneno" >
+                <span class="error"></span>
             </div>
         </div>
         <div class="row p-10">
@@ -102,7 +108,9 @@
             <Label class="col-2 text-lg-end">Email </Label>
             <div class="col-lg-10">
                 <input class="form-control" type="text" placeholder="Eg:hello@gmail.com" />
+                <span class="error"></span>
             </div>
+            
         </div>
         <div class="row p-10">
             
@@ -125,6 +133,7 @@
                         Testing Manual , Automation
                     </option>
                 </select>
+                <span class="error"></span>
             </div>
         </div>
         <div class="row p-10">
@@ -144,11 +153,12 @@
                 <label class="form-check-label text-dark px-2" >
                     I'm not a Robot
                   </label>
+                  <span class="error"></span>
             </div>
         </div>
         <hr>
         <div class="offset-1">
-            <button class="btn btn-primary btn-outline-light" >Submit Form</button>
+            <button class="btn btn-primary btn-outline-light" id="register-submit">Submit</button>
         </div>
     </main>
 </body>
