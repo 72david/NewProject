@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attenance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <style>
+        input[type="time"]{
+            margin:auto;
+            width:10vw;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg p-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" >Our Education</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigationitems" aria-controls="navigationitems" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navigationitems">    
+                <ul class="navbar-nav ms-lg-auto w-75 justify-content-around">
+                    <li class="nav-item">
+                        <a href="home.html" class="nav-link">
+                            Home
+                        </a> 
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="studentregister.html" class="nav-link">
+                        Student Register
+                        </a> 
+                    </li>
+                    <li class="nav-item ">
+                        <a href="attenance.html" class="nav-link active">
+                        Attenance
+                        </a> 
+                    </li>
+                    <li class="nav-item">
+                        <a href="attenancereport.html" class="nav-link">
+                            Attenance Report
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="index.html" class="nav-link">
+                        Logout
+                        </a> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container mt-3">
+        <section class="row">
+            <div class="col-12 col-lg-4 col-md-6">
+                <label class="form-label " for="attenance-name">Name</label>
+                <input class="form-control " type="text" placeholder="Name" id="attenance-name" />
+            </div>
+            <div class="col-12 col-lg-4 col-md-6">
+                <label class="form-label" for="attenance-subject">Subject</label>
+                <div id="subjects">
+                    <select class="form-select px-3">
+                        <option selected>
+                            --Select --
+                        </option>
+                        <option>
+                            Java , HTML ,CSS ,JavaScript
+                        </option>
+                        <option>
+                            HTML ,CSS ,JavaScript ,React
+                        </option>
+                        <option>
+                            HTML ,CSS ,JavaScript ,Mysql
+                        </option>
+                        <option>
+                            Testing Manual , Automation
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <label for="attenance-date" class="form-label" >Date</label>
+                <input type="date" class="form-control" id="attenance-date" >
+            </div>
+            <div class="2-offset 0-lg-offset col-4 col-lg-2 mt-4 p-2 text-center">
+                <button class="btn btn-primary w-100">Submit</button> 
+            </div>
+           
+        </section>
+        <section class="container bg-light p-3 mt-4 table-responsive-md h
+        -100">
+           <table class="table table-striped text-center">
+                <tr>
+                    <th>Sno</th>
+                    <th>Name</th>
+                    <th>In-Time</th>
+                    <th>Out-Time</th>
+                    <th>Present</th>
+                    <th>Absent</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXXX YYY</td>
+                    <td><input type="time" class="form-control"></td>
+                    <td><input type="time" class="form-control"></td>
+                    <td><input type="checkbox" class="form-check mx-auto" value="attenance"> </td>
+                    <td><input type="checkbox" class="form-check mx-auto" value="attenance" ></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXXX YYY</td>
+                    <td><input type="time" class="form-control"></td>
+                    <td><input type="time" class="form-control"></td>
+                    <td><input type="checkbox" class="form-check mx-auto" name="attenance"> </td>
+                    <td><input type="checkbox" class="form-check mx-auto" name="attenance" ></td>
+                </tr>
+           </table>
+        </section>
+    </main>
+</body>
+</html>
