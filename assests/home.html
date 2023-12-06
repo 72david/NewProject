@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/techveel.png">
+    <link rel="stylesheet" href="css/style.css" >
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Welcome</title>
@@ -17,7 +19,7 @@
             <div class="collapse navbar-collapse" id="navigationitems">    
                 <ul class="navbar-nav ms-lg-auto w-75 justify-content-around">
                     <li class="nav-item">
-                        <a href="" class="nav-link active">
+                        <a href="home.html" class="nav-link active">
                             Home
                         </a> 
                     </li>
@@ -28,17 +30,17 @@
                         </a> 
                     </li>
                     <li class="nav-item ">
-                        <a href="" class="nav-link">
-                        Attenance
+                        <a href="attendance.html" class="nav-link">
+                        Attendance
                         </a> 
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">
-                            Attenance Report
+                        <a href="attendancereport.html" class="nav-link">
+                            Attendance Report
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a href="index.html" class="nav-link">
+                        <a href="../index.html" class="nav-link">
                         Logout
                         </a> 
                     </li>
@@ -46,18 +48,18 @@
             </div>
         </div>
     </nav>
-    <header class="h-50-vh px-4 py-2">
+    <header class="px-4 py-2" >
         <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
-            <div class="carousel-inner" style="height: 75vh;">
+            <div class="carousel-inner" style="max-height:600px">
               
               <div class="carousel-item">
-                <img src="assests/images/scott-graham-5fNmWej4tAA-unsplash.jpg" class="d-block w-100" alt="...">
+                <img src="images/scott-graham-5fNmWej4tAA-unsplash.jpg" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item active">
-                <img src="assests/images/thought-catalog-505eectW54k-unsplash.jpg" class="d-block w-100" alt="...">
+                <img src="images/thought-catalog-505eectW54k-unsplash.jpg" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="assests/images/carlos-muza-hpjSkU2UYSU-unsplash.jpg" class="d-block w-100" alt="...">
+                <img src="images/carlos-muza-hpjSkU2UYSU-unsplash.jpg" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
@@ -73,9 +75,9 @@
     
     <main class="mt-md-4 container p-3">
         <section class="row justify-content-around text-center">
-            <div class="col-lg-3">
-                <fieldset class="border px-5 py-3" >
-                    <legend>Java</legend>
+            <div class="col-lg-3 mt-2">
+                <fieldset class="border px-5 py-3 border-success" >
+                    <legend class="text-success">Java</legend>
                     <p >
                          Lorem Ipsum is simply dummy text of the printing and 
                          typesetting industry. Lorem Ipsum has been the industry's
@@ -84,10 +86,10 @@
                     </p>
               </fieldset>
             </div>
-            <div class="col-lg-3 ">
-                <fieldset class="border px-5 py-3" >
-                    <legend>Spring Boot</legend>
-                    <p >
+            <div class="col-lg-3  mt-2">
+                <fieldset class="border px-5 py-3 border-warning" >
+                    <legend class="text-warning">Spring Boot</legend>
+                    <p>
                          Lorem Ipsum is simply dummy text of the printing and 
                          typesetting industry. Lorem Ipsum has been the industry's
                          standard dummy 
@@ -95,9 +97,9 @@
                     </p>
               </fieldset>
             </div>
-            <div class="col-lg-3 ">
-                <fieldset class="border px-5 py-3" >
-                    <legend>React</legend>
+            <div class="col-lg-3 mt-2">
+                <fieldset class="border px-5 py-3 border-primary" >
+                    <legend class="text-primary">React</legend>
                     <p >
                          Lorem Ipsum is simply dummy text of the printing and 
                          typesetting industry. Lorem Ipsum has been the industry's
