@@ -2,7 +2,36 @@
 *{
     font-family: 'Hedvig Letters Sans', sans-serif;
 }
+body{
+    background: rgb(22,153,180);
+    background: linear-gradient(90deg, rgba(22,153,180,1) 0%, rgba(28,93,126,1) 38%, rgba(33,29,105,1) 100%);   
+}
 .error{
     color:red;
     font-size: small;
+}
+.nav-link ,.navbar-brand{
+    color:white;
+  
+}
+.nav-link:hover{
+    color: #a09898;
+  
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #20c997;
+    border-color: #20c997;
+}
+.message-cell{
+    max-height:100px;
+    min-width:300px;
+    max-width: 350px;
+    overflow: hidden;
+}
+.dateofbirth-cell{
+    min-width:100px;
+}
+.name-cell{
+    min-width:100px;
 }
