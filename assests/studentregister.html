@@ -20,11 +20,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>Register</title>
+    <title>Registor</title>
     <link rel="icon" href="images/techveel.png">
     <link rel="stylesheet" href="css/style.css" >
 </head>
-<body class="pb-5">
+<body class="pb-5 bg-info">
     <nav class="navbar navbar-expand-lg p-4">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" >Our Education</a>
@@ -32,7 +32,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navigationitems">    
-                <ul class="navbar-nav ms-lg-auto w-75 justify-content-around">
+                <ul class="navbar-nav ms-lg-auto w-75 justify-content-around ">
                     <li class="nav-item">
                         <a href="home.html" class="nav-link">
                             Home
@@ -40,7 +40,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a href="studentregister.html" class="nav-link active">
+                        <a href="studentregister.html" class="nav-link ">
                         Student Register
                         </a> 
                     </li>
@@ -63,16 +63,59 @@
             </div>
         </div>
     </nav>
-    <main class="container mt-3 w-75 mx-auto bg-light px-5 pt-5 pb-3 rounded">
-        <div class="row row-lg-2 mp-3 p-10 col-gap-1">
+    
+    <main class="container mt-3 w-75 mx-auto bg-light px-5 py-4 rounded position-relative">
+        
+        <div class="text-success text-center pb-4" id="register_status"></div >
+            <div style="display: none;" class="card position-absolute top-0 start-0 h-100 px-5 py-3 text-start w-100 z-1 
+            justify-content-center bg-light" id="Preview_container">
+                <p class="fs-1 text-center mb-2 mt-0">Entered Information</p>
+                <div class="card-body row border border-info rounded mb-3">
+                    <div class="col-6 my-3">
+                        <h5 class="card-title">Name</h5>
+                        <div class="text-success ps-4" id="prev_name"></div>
+                    </div>
+                    <div  class="col-md-6 my-3">
+                        <h5 class="card-title">Phone Number</h5>
+                        <div class="text-success ps-4" id="prev_phonenumber"></div>
+                    </div>
+                    <div class="col-md-6 my-3">
+                        <h5 class="card-title">Date of Birth</h5>
+                        <div class="text-success ps-4" id="prev_dateofbirth"  ></div>
+                    </div>
+                    <div class="col-md-6 my-3">
+                        <h5 class="card-title">Gender</h5>
+                        <div class="text-success ps-4" id="prev_gender"></div>
+                    </div>
+                    <div class="col-md-6 my-3">
+                        <h5 class="card-title">Email</h5>
+                        <div class="text-success ps-4" id="prev_email"></div>
+                    </div>
+                    <div class="col-md-6 my-3">
+                        <h5 class="card-title">Subject</h5>
+                        <div class="text-success ps-4" id="prev_subject"></div>
+                    </div>
+                    <div class="col my-3">
+                        <h5 class="card-title">Message</h5>
+                        <div class="text-success ps-4" id="prev_message"></div>
+                    </div>
+                    
+                </div>
+                <div class="row justify-content-around">
+                    <button class="btn btn-primary w-md-25 col-md-3" id="registor_back">BACK</button>
+                    <button class="btn btn-primary w-md-25 mt-md-0 mt-3 mx-autom col-md-3 " id="registor_submit">SUBMIT</button>
+                </div>
+                
+            </div>
+        <div class="row row-lg-2 mp-3 p-10  col-gap-1">
             
-            <label class="col-md-2 text-lg-end">Your Name</label> 
+            <label class="col-lg-2 text-lg-end">Your Name</label> 
             <div class="col-lg-5">
-                <input class="form-control" type="text" placeholder="First Name" id="first-name" >
+                <input class="form-control" type="text" placeholder="First Name" id="first_name" >
                 <span class="error"></span>
             </div>
             <div class="col-lg-5 mt-lg-0 mt-3">
-                <input class=" form-control" type="text" placeholder="Second Name" id="second-name" >
+                <input class=" form-control" type="text" placeholder="Second Name" id="second_name" >
                 <span class="error"></span>
             </div>
         </div>
@@ -80,8 +123,13 @@
         <div class="row p-10">
             
             <Label class="col-2 text-lg-end">Phone </Label>
-            <div class="col-lg-10">
+            <div class="col-lg-5">
                 <input class="form-control" type="text" placeholder="mobile number" id="phoneno" >
+                <span class="error"></span>
+            </div>
+            <label class="mt-lg-0 mt-4 col-lg-2 text-lg-end" for="dateofbirth"> Date of Birth</label>
+            <div class="col-lg-3">
+                <input class="form-control" type="date" min="1980-01-01" max="2005-12-31" placeholder="mobile number" id="dateofbirth" >
                 <span class="error"></span>
             </div>
         </div>
@@ -89,25 +137,26 @@
             <label class="col-md-2 text-lg-end">
                 Gender
             </label>
-            <div class="col d-md-flex form-check ">
-                <div class="mx-3 mx-md-0 mt-md-0 mt-2">
-                    <input class="form-check-input mx-2 " type="radio" name="gender" id="GenderRadio1"/>
+            <div class="col d-md-flex form-check">
+                <div class="mx-3 mx-md-0 mt-md-0 mt-2" id="gender">
+                    <input class="form-check-input mx-2 " type="radio" name="gender" value="Male" id="GenderRadio1"/>
                     <label class=".form-check-label" for="GenderRadio1">Male</label> 
                 </div>  
                 <div class="mx-3 mt-md-0 mt-2">
-                    <input class="form-check-input mx-2" type="radio" name="gender" id="GenderRadio2" />
+                    <input class="form-check-input mx-2" type="radio" name="gender" value="Female" id="GenderRadio2" />
                     <label class=".form-check-label" for="GenderRadio2">Female</label> 
                 </div>
                 <div class="mx-3 mt-md-0 mt-2">
-                    <input class="form-check-input mx-2" type="radio" name="gender" id="GenderRadio3" />
+                    <input class="form-check-input mx-2" type="radio" name="gender" value="Others" id="GenderRadio3" />
                     <label class=".form-check-label" for="GenderRadio3">Others</label> 
                 </div>
+                <span class="error p-1"></span>
             </div>   
         </div>
         <div class="row p-10">
             <Label class="col-2 text-lg-end">Email </Label>
             <div class="col-lg-10">
-                <input class="form-control" type="text" placeholder="Eg:hello@gmail.com" />
+                <input class="form-control" type="text" placeholder="Eg:hello@gmail.com" id="registor_email" />
                 <span class="error"></span>
             </div>
             
@@ -116,7 +165,7 @@
             
             <label class="col-lg-2 text-lg-end" for="subjects">Subject</label>
             <div class="col-lg-10" id="subjects">
-                <select class="form-select px-3">
+                <select class="form-select px-3" id="registor_subject">
                     <option selected>
                         --Select --
                     </option>
@@ -137,11 +186,12 @@
             </div>
         </div>
         <div class="row p-10">
-            <label class="col-2 text-lg-end">
+            <label class="col-2 text-lg-end" >
                 Message
             </label>
-            <div class="col-lg-10">
-                <Textarea class="form-control"></Textarea>
+            <div class="col-lg-10" >
+                <Textarea class="form-control" id="registor_message"></Textarea>
+                <span class="error"></span>
             </div>
         </div>
         <div class="row p-10">
@@ -149,7 +199,7 @@
                 Verification
             </label>
             <div class=" col-sm-6 bg-light border verification w-auto mx-2 rounded py-2 px-3">
-                <input class="form-check-input" type="checkbox" />
+                <input class="form-check-input" type="checkbox" id="check_bot" />
                 <label class="form-check-label text-dark px-2" >
                     I'm not a Robot
                   </label>
@@ -157,9 +207,64 @@
             </div>
         </div>
         <hr>
-        <div class="offset-1">
-            <button class="btn btn-primary btn-outline-light" id="register-submit">Submit</button>
+        <div class="row justify-content-around">
+
+
+            <button class="btn btn-primary btn-outline-light col-3" id="registor_clear">Clear</button>
+
+
+            <button class="btn btn-primary btn-outline-light col-3" id="registor_preview">Preview</button>
+
+
+            <button class="btn btn-primary btn-outline-light col-3" id="register_view">View</button>
+
+            <button class="btn btn-primary btn-outline-light col-3" id="register_view_hide" style="display: none;">Hide</button>
+
+        </div>
+       
+    </main>
+
+    <main class="container mt-3 mx-auto bg-light rounded" id="student_datas" style="display:none;">
+        <div class="table-responsive">
+            <table class="table table-striped " id="students_data_table">
+                <thead>
+                    <th>
+                        Sno
+                    </th>
+                    <th><div class="name-cell">Name</div> </th>
+                    <th>Phone number</th>
+                    <th><div class="dateofbirth-cell">Date Of Birth</div></th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Subjects</th>
+                    <th><div class="message-cell">Message</div></th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <!-- <td>1</td>
+                    <td>David</td>
+                    <td>9159578900</td>
+                    <td>30-10-1999</td>
+                    <td>Male</td>
+                    <td>david@gmail.com</td>
+                    <td>java python spring boot</td>
+                    
+                    <td >
+                        <div class="message-cell">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit repellat praesentium neque non dolor 
+                            accusamus, perspiciatis sapiente eos quasi ipsam molestias asperiores id quis corrupti, reiciendis magni, dolore ea? Qui.
+                        </div>
+                    </td>
+                   
+                    <td class="">
+                        <button class="btn btn-success">Edit</button>
+                        <button class="btn btn-danger" onclick="deletestudentdata(123)">Delete</button>
+                    </td> -->
+                </tbody>
+            </table>
         </div>
     </main>
+
+    <script src="js/register.js"></script>
 </body>
 </html>
