@@ -25,7 +25,7 @@ body{
 }
 .message-cell{
     max-height:100px;
-    min-width:300px;
+    min-width:150px;
     max-width: 350px;
     overflow: hidden;
 }

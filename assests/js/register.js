@@ -1,10 +1,33 @@
-// const Regexname=/\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/;
+
 const Regexemail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 const RegexPhone=/^(\+\d{1,3}[- ]?)?\d{10}$/;
-// dateofbirth.max = new Date().toISOString().split("T")[0];
+
 let Gendervalue;
+let updateID;
+
+try{
+    fetch('http://localhost:8000/getsubjects').then(res=>{
+        return res.json();
+    }).then(subjects=>{
+        const select=document.getElementById('register_subject');
+        
+        subjects.forEach(subject=>{
+            let option=document.createElement("option");
+            option.text=subject.subjectName;
+            option.value=subject.subjectID;
+            select.appendChild(option);
+           
+        });
+    });
+}catch(error){
+    console.log(error);
+}    
+
+
+
 
 document.getElementById('register_view_hide').addEventListener('click',()=>{
+    
     document.getElementById('register_view_hide').style.display="none";
     document.getElementById('student_datas').style.display="none";
     document.getElementById('register_view').style.display="block";
@@ -12,24 +35,29 @@ document.getElementById('register_view_hide').addEventListener('click',()=>{
 });
 
 
-document.getElementById('registor_back').addEventListener('click',function(){
+document.getElementById('register_back').addEventListener('click',()=>{
     document.getElementById('Preview_container').style.display="none";
 });
-document.getElementById('registor_preview').addEventListener('click',validate);
+document.getElementById('register_preview').addEventListener('click',validate);
 
-document.getElementById('registor_submit').addEventListener('click',async function(){
+document.getElementById('register_submit').addEventListener('click',()=>{insertintodatabase('POST','http://localhost:8000/register')});
 
+document.getElementById('register_update').addEventListener('click',()=>{insertintodatabase('PUT','http://localhost:8000/updatedata')});
+
+async function insertintodatabase(Method,url){
+   
     let Firstname=document.getElementById('first_name').value;
     let Secondname=document.getElementById('second_name').value;
-    let Subject=document.getElementById('registor_subject').value;
+    let Subject=document.getElementById('register_subject').value;
     let Dateofbirth=document.getElementById('dateofbirth').value;
     selectgender(document.querySelectorAll('input[name="gender"]'));
     let Gender=Gendervalue;
     let Phoneno=document.getElementById('phoneno').value;
-    let Email=document.getElementById('registor_email').value;
-    let Message=document.getElementById('registor_message').value;
+    let Email=document.getElementById('register_email').value;
+    let Message=document.getElementById('register_message').value;
    
     const update = {
+        registerID:updateID,
         firstName: Firstname,
         secondName:Secondname,
         subject: Subject,
@@ -39,9 +67,10 @@ document.getElementById('registor_submit').addEventListener('click',async functi
         email:Email,
         message:Message
         };
+    
 
-    const posttrequest={
-        method:'POST',
+    const request={
+        method:Method,
         headers: {
             'Content-Type': 'application/json',
             },
@@ -50,19 +79,26 @@ document.getElementById('registor_submit').addEventListener('click',async functi
 
     try {
       
-        const response = await fetch("http://localhost:8000/registor",posttrequest);
+        const response = await fetch(url,request);
 
         const data = await response.json();
 
         document.getElementById('Preview_container').style.display="none";
-        document.getElementById('register_status').innerHTML=data.message;
+        setregisterStatusMessage(data.message);
 
         cleardata();
+        
+        document.getElementById('students_data_table').querySelector('tbody').innerHTML='';
+        insertdatatotable();
+        document.getElementById('register_update').style.display='none';
+        document.getElementById('register_submit').style.display='block';
 
       } catch (error) {
         console.log(error);
       }  
-});
+}
+
+document.getElementById('register_clear').addEventListener('click',cleardata);
 
 
 
@@ -72,17 +108,14 @@ document.getElementById('registor_submit').addEventListener('click',async functi
 
 function validate(){
 
-     
-   
-
     let Firstname=document.getElementById('first_name');
     let Secondname=document.getElementById('second_name');
-    let Subject=document.getElementById('registor_subject');
+    let Subject=document.getElementById('register_subject');
     let Dateofbirth=document.getElementById('dateofbirth');
     let Gender=document.querySelectorAll('input[name="gender"]');
     let Phoneno=document.getElementById('phoneno');
-    let Email=document.getElementById('registor_email');
-    let Message=document.getElementById('registor_message');
+    let Email=document.getElementById('register_email');
+    let Message=document.getElementById('register_message');
     let Checkbot=document.getElementById('check_bot');
 
     const fnameparent=Firstname.parentElement;
@@ -151,6 +184,13 @@ function validate(){
         }
            
 }
+function setregisterStatusMessage(message){
+    const registerStatusmessage=document.getElementById('register_status');
+    registerStatusmessage.innerHTML=message;
+    setTimeout(()=>{
+        registerStatusmessage.innerHTML="";
+    },3000);
+}
 
 function validatename(name,second){
     let message=null;
@@ -198,13 +238,18 @@ function validateeamil(email){
 function cleardata(){
     document.getElementById('first_name').value=null;
     document.getElementById('second_name').value=null;
-    document.getElementById('registor_subject').querySelectorAll('option')[0].selected='selected';
-    document.getElementById('dateofbirth');
-    document.querySelectorAll('input[name="gender"]');
-    document.getElementById('phoneno');
-    document.getElementById('registor_email');
-    document.getElementById('registor_message');
-    document.getElementById('check_bot');
+    document.getElementById('register_subject').querySelectorAll('option')[0].selected='selected';
+    document.getElementById('dateofbirth').value=null;
+    document.querySelectorAll('input[name="gender"]').forEach(element=>{
+        element.checked=false;
+    });
+    document.getElementById('phoneno').value=null;
+    document.getElementById('register_email').value=null;
+    document.getElementById('register_message').value=null;
+    document.getElementById('check_bot').checked=false;
+
+    document.getElementById('register_update').style.display='none';
+    document.getElementById('register_submit').style.display='block';
 
 }
 
@@ -212,7 +257,7 @@ function cleardata(){
 // Table Scripts
 
 
-document.getElementById('register_view').addEventListener('click',()=>{
+document.getElementById('register_view').addEventListener('click',function(){
     
     insertdatatotable();
     const tbody = document.getElementById('students_data_table').getElementsByTagName('tbody')[0];
@@ -227,7 +272,7 @@ function insertdatatotable(){
     const table=document.getElementById('students_data_table').getElementsByTagName('tbody')[0];
 
     let sno=0;
-
+    
     fetch("http://localhost:8000/studentsdata")
     .then(response => {
         if (!response.ok) {
@@ -242,7 +287,7 @@ function insertdatatotable(){
             sno++;
     
             row=table.insertRow();
-            console.log(data.firstName);
+         
             row.insertCell(0).innerHTML=sno;
             row.insertCell(1).innerHTML='<td>'+data.firstName+((data.secondName!=null)?" "+data.secondName:"")+'</td>';
             cell3=row.insertCell(2).innerHTML='<td>'+data.phoneno+'</td>';
@@ -263,10 +308,12 @@ function insertdatatotable(){
 }
 
 function editstudent(ID){
+    document.getElementById('register_update').style.display='block';
+    document.getElementById('register_submit').style.display='none';
     fetch('http://localhost:8000/student?ID='+ID).then(res=>{
         return res.json();
     }).then(data=>{
-        console.log(data);
+        updateID=ID;
         setdata(data);
     }).catch(error=>{
         console.log(error);
@@ -303,7 +350,7 @@ function deletestudentdata(ID){
 function setdata(data){
         document.getElementById('first_name').value=data.firstName;
         document.getElementById('second_name').value=data.secondName;
-        document.getElementById('registor_subject').querySelectorAll('option').forEach(option=>{
+        document.getElementById('register_subject').querySelectorAll('option').forEach(option=>{
             if(option.value===data.subject){
                 option.selected='selected';
             }
@@ -316,8 +363,8 @@ function setdata(data){
         });
         
         document.getElementById('phoneno').value=data.phoneno;
-        document.getElementById('registor_email').value=data.email;
-        document.getElementById('registor_message').value=data.message;
+        document.getElementById('register_email').value=data.email;
+        document.getElementById('register_message').value=data.message;
        
         
 }

@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>Registor</title>
+    <title>register</title>
     <link rel="icon" href="images/techveel.png">
     <link rel="stylesheet" href="css/style.css" >
 </head>
@@ -102,8 +102,11 @@
                     
                 </div>
                 <div class="row justify-content-around">
-                    <button class="btn btn-primary w-md-25 col-md-3" id="registor_back">BACK</button>
-                    <button class="btn btn-primary w-md-25 mt-md-0 mt-3 mx-autom col-md-3 " id="registor_submit">SUBMIT</button>
+                    <button class="btn btn-primary w-md-25 col-md-3" id="register_back">BACK</button>
+                    <button class="btn btn-primary w-md-25 mt-md-0 mt-3 mx-autom col-md-3 " id="register_submit" >SUBMIT</button>
+                    <button style="display: none;" class="btn btn-primary w-md-25 mt-md-0 mt-3 mx-autom col-md-3 " id="register_update" >
+                        UPDATE
+                    </button>
                 </div>
                 
             </div>
@@ -156,7 +159,7 @@
         <div class="row p-10">
             <Label class="col-2 text-lg-end">Email </Label>
             <div class="col-lg-10">
-                <input class="form-control" type="text" placeholder="Eg:hello@gmail.com" id="registor_email" />
+                <input class="form-control" type="text" placeholder="Eg:hello@gmail.com" id="register_email" />
                 <span class="error"></span>
             </div>
             
@@ -165,21 +168,9 @@
             
             <label class="col-lg-2 text-lg-end" for="subjects">Subject</label>
             <div class="col-lg-10" id="subjects">
-                <select class="form-select px-3" id="registor_subject">
+                <select class="form-select px-3" id="register_subject">
                     <option selected>
                         --Select --
-                    </option>
-                    <option>
-                        Java , HTML ,CSS ,JavaScript
-                    </option>
-                    <option>
-                        HTML ,CSS ,JavaScript ,React
-                    </option>
-                    <option>
-                        HTML ,CSS ,JavaScript ,Mysql
-                    </option>
-                    <option>
-                        Testing Manual , Automation
                     </option>
                 </select>
                 <span class="error"></span>
@@ -190,7 +181,7 @@
                 Message
             </label>
             <div class="col-lg-10" >
-                <Textarea class="form-control" id="registor_message"></Textarea>
+                <Textarea class="form-control" id="register_message"></Textarea>
                 <span class="error"></span>
             </div>
         </div>
@@ -210,15 +201,15 @@
         <div class="row justify-content-around">
 
 
-            <button class="btn btn-primary btn-outline-light col-3" id="registor_clear">Clear</button>
+            <button class="btn btn-primary btn-outline-light col-md-3 col" id="register_clear">Clear</button>
 
 
-            <button class="btn btn-primary btn-outline-light col-3" id="registor_preview">Preview</button>
+            <button class="btn btn-primary btn-outline-light col-md-3 col" id="register_preview">Preview</button>
 
 
-            <button class="btn btn-primary btn-outline-light col-3" id="register_view">View</button>
+            <button class="btn btn-primary btn-outline-light col-md-3 col" id="register_view">View</button>
 
-            <button class="btn btn-primary btn-outline-light col-3" id="register_view_hide" style="display: none;">Hide</button>
+            <button class="btn btn-primary btn-outline-light col-md-3 col" id="register_view_hide" style="display: none;">Hide</button>
 
         </div>
        
@@ -226,7 +217,7 @@
 
     <main class="container mt-3 mx-auto bg-light rounded" id="student_datas" style="display:none;">
         <div class="table-responsive">
-            <table class="table table-striped " id="students_data_table">
+            <table class="table table-striped table-bordered" id="students_data_table">
                 <thead>
                     <th>
                         Sno
