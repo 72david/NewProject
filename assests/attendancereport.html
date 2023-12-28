@@ -8,40 +8,41 @@
     <title>Attenance Reportt</title>
     <link rel="stylesheet" href="css/style.css" >
     <link rel="icon" href="images/techveel.png">
+    
 </head>
-<body>
+<body class="pb-5">
     <nav class="navbar navbar-expand-lg p-4">
-        <div class="container-fluid">`  
-            <a class="navbar-brand text-start" href="#">Our Education</a>
+        <div class="container-fluid">
+            <a class="navbar-brand"><img src="images/techveel brand.png" class="w-50 bg-light rounded p-1"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigationitems" aria-controls="navigationitems" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navigationitems">    
-                <ul class="navbar-nav ms-lg-auto w-75 justify-content-around">
-                    <li class="nav-item">
-                        <a href="home.html" class="nav-link">
+            <div class="collapse navbar-collapse " id="navigationitems">    
+                <ul class="navbar-nav ms-lg-auto w-75 justify-content-end  fs-6">
+                    <li class="nav-item me-5">
+                        <a href="home.html" class="nav-link ">
                             Home
                         </a> 
                     </li>
                     
-                    <li class="nav-item">
+                    <li class="nav-item me-5">
                         <a href="studentregister.html" class="nav-link">
                         Student Register
                         </a> 
                     </li>
-                    <li class="nav-item ">
-                        <a href="attendance.html" class="nav-link">
+                    <li class="nav-item me-5">
+                        <a href="attendance.html" class="nav-link ">
                         Attenance
                         </a> 
                     </li>
-                    <li class="nav-item">
-                        <a href="attendancereport.html" class="nav-link active">
+                    <li class="nav-item me-5">
+                        <a href="attendancereport.html" class="nav-link">
                             Attenance Report
                         </a>
                     </li>
-                    <li class="nav-item ">
-                        <a href="../index.html" class="nav-link">
-                        Logout
+                    <li class="nav-item me-2">
+                        <a href="../index.html" >
+                            <img src="images/logout.png" width="40px" title="logout">
                         </a> 
                     </li>
                 </ul>
@@ -49,46 +50,45 @@
         </div>
     </nav>
     <main class="container mt-3">
-        <section class="row">
-            <div class="col-12 col-lg-4 col-md-6">
-                <label class="form-label " for="attenance-name">Name</label>
-                <input class="form-control " type="text" placeholder="Name" id="attendance_name" >
+        <section class="row justify-content-center">
+            <div class="col-12 col-lg-5 col-md-6">
+                <label class="form-label  text-light" for="report_name">Name</label>
+                <select class="form-select" id="report_name" placeholder="Name" >
+                    <option style="display: none;" >Name</option>
+                </select>
                 <span class="error"></span>
             </div>
-            <div class="col-12 col-lg-4 col-md-6">
-                <label class="form-label" for="attenance-subject">Subject</label>
-                <div id="subjects">
-                    <select class="form-select px-3" id="attendance_subject">
-                        <option selected>
-                            --Select --
-                        </option>
-                        <option>
-                            Java , HTML ,CSS ,JavaScript
-                        </option>
-                        <option>
-                            HTML ,CSS ,JavaScript ,React
-                        </option>
-                        <option>
-                            HTML ,CSS ,JavaScript ,Mysql
-                        </option>
-                        <option>
-                            Testing Manual , Automation
-                        </option>
-                    </select>
-                    <span class="error"></span>
-                </div>
-            </div>
-            <div class="col-6 col-lg-2">
-                <label for="attenance-month" class="form-label" >Month</label>
-                <input type="month" class="form-control" id="attendance_month" >
+            <div class="col-6 col-lg-3">
+                <label for="report_from_date" class="form-label  text-light" >From Date</label>
+                <input onchange="datevalidate()" type="date" class="form-control" id="report_from_date" >
                 <span class="error"></span>
             </div>
-            <div class="2-offset 0-lg-offset col-4 col-lg-2 mt-4 p-2 text-center">
-                <button class="btn btn-primary w-100" id="attendancereport_submit">Submit</button> 
+            <div class="col-6 col-lg-3">
+                <label for="report_to_date" class="form-label  text-light" >To Date</label>
+                <input onchange="datevalidate()" type="date" class="form-control" id="report_to_date" >
+                <span class="error"></span>
             </div>
-           
+            <div class="col-4 col-lg-2 mt-4 p-2 text-center">
+                <button class="btn btn-primary w-100" id="report_view">VIEW</button> 
+            </div>
+        </section>
+        <div id="notfound_message" class="text-center text-danger mt-3 fs-5"></div>
+        <section  style="display: none;" class="container bg-light p-3 mt-5 table-responsive h-100" id="report_table">
+           <table class="table table-striped table-bordered text-center" id="AttendanceReporttable">
+                <thead>
+                    <th>Sno</th>
+                    <th><div class="attendance-name-cell">Name</div></th>
+                    <th><div class="date-cell">Date</div></th>
+                    <th><div class="in-time">In Time</div> </th>
+                    <th><div class="out-time">Out-Time</div> </th>
+                    <th><div class="total-hours">Total Hours</div> </th>
+                </thead>
+                <tbody>
+                </tbody>    
+           </table>
         </section>
     </main>
-    <script src="js/attendancereport.js" ></script>
+    <script src="js/attendancereport.js" >
+    </script>
 </body>
 </html>

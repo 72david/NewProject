@@ -6,19 +6,33 @@ body{
     background: rgb(22,153,180);
     background: linear-gradient(90deg, rgba(22,153,180,1) 0%, rgba(28,93,126,1) 38%, rgba(33,29,105,1) 100%);   
 }
+
+
 .error{
     color:red;
     font-size: small;
+   
 }
-.nav-link ,.navbar-brand{
+
+
+.navbar .navbar-toggler[aria-expanded="true"] {
+    color: rgb(188, 185, 185)!important;
+    }
+    .navbar .navbar-toggler:focus{
+    color: rgb(188, 185, 185);
+    }
+.nav-link ,.navbar-brand:hover,.navbar-brand{
     color:white;
-  
+}
+
+.nav-link{
+    border-bottom:solid transparent;
 }
 .nav-link:hover{
-    color: #a09898;
-  
+    color:white;
+    border-bottom: solid rgb(255, 166, 0);
 }
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+.btn-primary:hover {
     color: #fff;
     background-color: #20c997;
     border-color: #20c997;
@@ -30,8 +44,41 @@ body{
     overflow: hidden;
 }
 .dateofbirth-cell{
-    min-width:100px;
+    min-width:80px;
 }
 .name-cell{
+    min-width:150px;
+}
+
+/* /*Attendance styles */
+
+.attendance-name-cell{
+    min-width:250px;
+}
+.in-time,.out-time,.date-cell{
     min-width:100px;
+    max-width: 200px;
+}
+.action-cell{
+    text-align: center;
+    min-width: 130px;
+}
+.total-hours{
+    min-width: 80px;
+}
+
+/* home styles */
+
+.home-message:hover{
+    transform: translatey(-10px);
+
+    transition: transform 0.5s;
+}
+.home-message{
+    transform: translatey(0px);
+
+    transition: transform 0.5s;
+}
+legend+p,.footer-nav{
+    font-size: small;
 }
